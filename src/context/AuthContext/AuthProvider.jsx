@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
-import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import auth from '../../firebase/firebase init';
 
 const AuthProvider = ({children}) => {
@@ -21,6 +21,14 @@ const signInUser = (email,password) =>{
   return signInWithEmailAndPassword(auth,email,password)
 }
 
+//for sign out user from firebase tutrial start>
+const signOutUser = () =>{
+  setLoading(true);
+  return signOut(auth)
+}
+
+//for sign out user from firebase tutrial start>
+
  //signIN from firebase auth docs tutrila end>
    // we use obserber start>
    useEffect(() =>{
@@ -39,6 +47,7 @@ const signInUser = (email,password) =>{
     loading,
     createUser,
     signInUser,
+    signOutUser,
     
 
   }

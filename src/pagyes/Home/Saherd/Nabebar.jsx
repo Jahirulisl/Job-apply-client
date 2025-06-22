@@ -5,8 +5,17 @@ import AuthContext from '../../../context/AuthContext/AuthContext';
 const Nabebar = () => {
 
   //for conditaion if user thaka then one worke start >
- const {user} = useContext(AuthContext);
+ const {user,signOutUser} = useContext(AuthContext);
    //for conditaion if user thaka then one worke end >
+   const handleSignOut = () =>{
+    signOutUser()
+    .then(()=>{
+      console.log('successful sign Out')
+    })
+    .catch(error =>{
+      console.log('failed to sign out .say here. dont leve me alone')
+    })
+   }
 
   //make links for short start>
   const links = <>
@@ -38,7 +47,7 @@ const Nabebar = () => {
         {/* if user have then one worke start */}
        {
         user ? <>
-        <button className="btn">Log Out</button>
+        <button onClick={handleSignOut} className="btn">Log Out</button>
         </> : <>
         <Link to="/register">Register</Link>
         <Link to="signIn">
