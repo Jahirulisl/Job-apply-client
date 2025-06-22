@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../../../context/AuthContext/AuthContext';
+import favIcon from '../../../assets/icon/icons8.png'
 
 const Nabebar = () => {
 
@@ -19,8 +20,11 @@ const Nabebar = () => {
 
   //make links for short start>
   const links = <>
-    <li><a>Item 1</a></li>
-    <li><a>Item 3</a></li>
+    <li><NavLink to="/">Home</NavLink></li>
+    <li><NavLink to="/">Home</NavLink></li>
+    <li><NavLink to="/">Home</NavLink></li>
+    <li><NavLink to="/">Home</NavLink></li>
+    
   </>
   //make links for short end>
   return (
@@ -36,7 +40,10 @@ const Nabebar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <a className="btn btn-ghost text-xl">
+          <img className='w-12' src={favIcon} alt="" />
+          <h3-tx-3xl>Job House</h3-tx-3xl>
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -47,7 +54,7 @@ const Nabebar = () => {
         {/* if user have then one worke start */}
        {
         user ? <>
-        <button onClick={handleSignOut} className="btn">Log Out</button>
+        <button onClick={handleSignOut} className="btn ">Log Out</button>
         </> : <>
         <Link to="/register">Register</Link>
         <Link to="signIn">
