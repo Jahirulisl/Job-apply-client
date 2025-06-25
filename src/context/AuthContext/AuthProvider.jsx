@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import AuthContext from './AuthContext';
-import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import {createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import auth from '../../firebase/firebase init';
 
+ //make google auth providar start ata vitora o korta partam start>
+ const googleProvider = new GoogleAuthProvider();
+ //make google auth providar start ata vitora o korta partam start>
 const AuthProvider = ({children}) => {
   //kicu jenish amra auth context a set kori>
 
@@ -20,6 +23,13 @@ const signInUser = (email,password) =>{
   setLoading(true);
   return signInWithEmailAndPassword(auth,email,password)
 }
+//sign in with google start>
+const signInWithGoogle = () =>{
+  setLoading(true);
+  return signInWithPopup(auth, googleProvider)
+}
+
+//sign in with google start>
 
 //for sign out user from firebase tutrial start>
 const signOutUser = () =>{
@@ -48,8 +58,8 @@ const signOutUser = () =>{
     createUser,
     signInUser,
     signOutUser,
+    signInWithGoogle,
     
-
   }
   return (
     <AuthContext.Provider value={authInfo}>

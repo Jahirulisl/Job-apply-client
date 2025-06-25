@@ -2,6 +2,8 @@ import Lottie from 'lottie-react';
 import signInData from '../../assets/lotti/signin.json.json'
 import React, { useContext } from 'react';
 import AuthContext from '../../context/AuthContext/AuthContext';
+import SocialLogin from '../Home/Saherd/SocialLogin';
+
 
 const SignIn = () => {
   //use context from hookes start>
@@ -45,6 +47,7 @@ const {signInUser} = useContext(AuthContext);
               <div><a className="link link-hover">Forgot password?</a></div>
               <button className="btn btn-neutral mt-4">LogIn</button>
             </form>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>

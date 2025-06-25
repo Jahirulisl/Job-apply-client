@@ -2,6 +2,7 @@ import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
 import registerLottiData from '../../../assets/lotti/register.json.json'
 import AuthContext from '../../../context/AuthContext/AuthContext';
+import SocialLogin from '../Saherd/SocialLogin';
 
 const Register = () => {
   //use context from hooks>
@@ -48,6 +49,7 @@ const Register = () => {
               <div><a className="link link-hover">Forgot password?</a></div>
               <button className="btn btn-neutral mt-4">Register</button>
             </form>
+             <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
