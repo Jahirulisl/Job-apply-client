@@ -3,28 +3,37 @@ import signInData from '../../assets/lotti/signin.json.json'
 import React, { useContext } from 'react';
 import AuthContext from '../../context/AuthContext/AuthContext';
 import SocialLogin from '../Home/Saherd/SocialLogin';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 const SignIn = () => {
   //use context from hookes start>
-const {signInUser} = useContext(AuthContext);
+  const { signInUser } = useContext(AuthContext);
   //use context from hookes start>
-  const handlSignIn = e =>{
+
+  //for location start>
+ const navigate =useNavigate();
+ const location = useLocation()
+ console.log('in signIn page',location);
+ const from = location.state || '/';
+  //for location end>
+  const handlSignIn = e => {
     e.preventDefault();
-    const form =e.target;
+    const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email,password)
-   //from tutril firebase sininUser >
-   signInUser(email,password)
-   .then(result =>{
-    console.log( 'sign In',result.user)
-   })
-   .catch(error =>{
-    console.log(error);
-   })
+    console.log(email, password)
+    //from tutril firebase sininUser >
+    signInUser(email, password)
+      .then(result => {
+        console.log('sign In', result.user)
+        navigate(from);
+      })
+      .catch(error => {
+        console.log(error);
+      })
 
-   }
+  }
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
