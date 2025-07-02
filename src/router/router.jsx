@@ -5,6 +5,7 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pagyes/Home/Home";
 import Register from "../pagyes/Home/Register/Register";
 import SignIn from "../pagyes/SignIn/SignIn";
+import JobDetails from "../pagyes/JobDetailes/JobDetails";
 
 
 //create router from router tutrial start>
@@ -18,7 +19,10 @@ const router = createBrowserRouter([
         path:'/',
         element:<Home></Home>,
       },
-
+      {
+       path:"/jobs/:id" ,
+       element: <JobDetails></JobDetails>
+      },
       {
         path:"register",
         element:<Register></Register>,
@@ -27,9 +31,7 @@ const router = createBrowserRouter([
         path:"signIn",
         element:<SignIn></SignIn>
       },
-      {
-        
-      }
+     
     ]
   },
 ]);
