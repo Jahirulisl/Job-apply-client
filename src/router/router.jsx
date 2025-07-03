@@ -7,6 +7,7 @@ import Register from "../pagyes/Home/Register/Register";
 import SignIn from "../pagyes/SignIn/SignIn";
 import JobDetails from "../pagyes/JobDetailes/JobDetails";
 import ParivateRoute from "./ParivateRoute";
+import JobApply from "../pagyes/JobApply/JobApply";
 
 
 //create router from router tutrial start>
@@ -24,6 +25,12 @@ const router = createBrowserRouter([
        path:"/jobs/:id" ,
        element: <ParivateRoute><JobDetails></JobDetails></ParivateRoute>,
        loader:({params})=>fetch(`http://localhost:5000/jobs/${params.id}`)
+      },
+      {
+        path: "/jobapply/:id",
+        element:<ParivateRoute>
+          <JobApply></JobApply>
+        </ParivateRoute>
       },
       {
         path:"register",

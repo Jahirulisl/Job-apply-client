@@ -13,7 +13,7 @@ const SignIn = () => {
 
   //for location start>
  const navigate =useNavigate();
- const location = useLocation()
+ const location = useLocation();
  console.log('in signIn page',location);
  const from = location.state || '/';
   //for location end>
