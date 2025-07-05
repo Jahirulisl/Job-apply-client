@@ -21,8 +21,7 @@ const Nabebar = () => {
   //make links for short start>
   const links = <>
     <li><NavLink to="/">Home</NavLink></li>
-    <li><NavLink to="/">Home</NavLink></li>
-    <li><NavLink to="/">Home</NavLink></li>
+    <li><NavLink to="/myapplications">MY Application</NavLink></li>
     <li><NavLink to="/">Home</NavLink></li>
     
   </>
