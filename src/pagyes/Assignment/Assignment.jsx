@@ -1,6 +1,9 @@
 import React from 'react';
+import Swal from 'sweetalert2';
+import useAuth from '../../hooks/UseAuth';
 
 const Assignment = () => {
+  const {user} = useAuth();
   const handleAddJob = e =>{
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -14,16 +17,24 @@ const Assignment = () => {
     }
     console.log(newJob);
 
-    fetch('',{
+    fetch('http://localhost:5000/jobs',{
       method:"POST",
       headers: {
         'content-type':'application/json'
       },
       body:JSON.stringify(newJob)
     })
-    .then(res=res.json())
+    .then(res=>res.json())
     .then(data=>{
-      console.log(data)
+      if (data.insertedId) {
+                Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: "Assignment has Been Dan",
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              }
     })
   }
   return (
@@ -54,8 +65,8 @@ const Assignment = () => {
             <span className='label-text'>job Type</span>
           </label>
 
-          <select className="select select-ghost w-full max-w-xs">
-            <option disabled selected>Pick a job Type</option>
+          <select defaultValue =">Pick a job Type" className="select select-ghost w-full max-w-xs">
+            <option disabled >Pick a job Type</option>
             <option>Intern</option>
             <option>Full-Time</option>
             <option>Part-time</option>
@@ -69,8 +80,8 @@ const Assignment = () => {
             <span className='label-text'>job Field</span>
           </label>
 
-          <select className="select select-ghost w-full max-w-xs" name='currency'>
-            <option disabled selected>Pick a job Field</option>
+          <select defaultValue="Pick a job Field"className="select select-ghost w-full max-w-xs" name='currency'>
+            <option disabled >Pick a job Field</option>
             <option>Engineering</option>
             <option>Marketing</option>
             <option>Finance</option>
@@ -97,8 +108,8 @@ const Assignment = () => {
               <span className='label-text'></span>
             </label>
 
-            <select className="select select-ghost w-full max-w-xs">
-              <option disabled selected>BDT</option>
+            <select defaultValue="currency"className="select select-ghost w-full max-w-xs">
+              <option disabled >currency</option>
               <option>BDT</option>
               <option>USD</option>
               <option>INR</option>
@@ -145,9 +156,19 @@ const Assignment = () => {
         {/* Hr Email start */}
         <div className='form-control'>
           <label className="label"> Hr Email</label>
-          <input type="email" name=' hremail' className="input input-bordered w-full" placeholder=" Hr Email " required />
+          <input type="email" defaultValue={user.email} name=' hremail' className="input input-bordered w-full" placeholder=" Hr Email " required />
         </div>
         {/* Hr Email start */}
+
+
+         {/* Job datline start */}
+        <div className='form-control'>
+          <label className="label"> 
+            <span>Application Deadline</span>
+          </label>
+          <input type="date"  name=' applicationDeadline' className="input input-bordered w-full" placeholder="applicationDeadline " required />
+        </div>
+        {/* Job datline start */}
 
         {/* company logo start */}
         <div className='form-control'>
