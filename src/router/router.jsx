@@ -10,6 +10,7 @@ import ParivateRoute from "./ParivateRoute";
 import JobApply from "../pagyes/JobApply/JobApply";
 import MyApplications from "../pagyes/MyApplications/MyApplications";
 import Assignment from "../pagyes/Assignment/Assignment";
+import MyPostedJobs from "../pagyes/MyPostedJobs/MyPostedJobs";
 
 
 //create router from router tutrial start>
@@ -42,6 +43,12 @@ const router = createBrowserRouter([
         path:"assignment",
         element: <ParivateRoute>
           <Assignment></Assignment>
+        </ParivateRoute>
+      },
+      {
+        path:"postedjobs",
+        element:<ParivateRoute>
+          <MyPostedJobs></MyPostedJobs>
         </ParivateRoute>
       },
       
