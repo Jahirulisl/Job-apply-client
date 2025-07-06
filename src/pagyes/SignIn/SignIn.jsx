@@ -4,6 +4,7 @@ import React, { useContext } from 'react';
 import AuthContext from '../../context/AuthContext/AuthContext';
 import SocialLogin from '../Home/Saherd/SocialLogin';
 import { useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 
 const SignIn = () => {
@@ -26,8 +27,20 @@ const SignIn = () => {
     //from tutril firebase sininUser >
     signInUser(email, password)
       .then(result => {
-        console.log('sign In', result.user)
-        navigate(from);
+        console.log('sign In', result.user);
+   //add tost masseg start>     
+         Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Successfully YOU Signed In!",
+        showConfirmButton: false,
+        timer: 1500,
+        toast: true
+      });
+      //add tost masseg end> 
+      
+  //nagigate mana holo ata j page a nia jaba    
+        navigate('/');
       })
       .catch(error => {
         console.log(error);

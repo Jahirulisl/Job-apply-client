@@ -3,10 +3,14 @@ import React, { useContext } from 'react';
 import registerLottiData from '../../../assets/lotti/register.json.json'
 import AuthContext from '../../../context/AuthContext/AuthContext';
 import SocialLogin from '../Saherd/SocialLogin';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   //use context from hooks>
   const {createUser} = useContext(AuthContext);
+
+  const navigate =useNavigate();
    //handle of from email and password start>
    const handlRegister = e =>{
     e.preventDefault();
@@ -20,7 +24,18 @@ const Register = () => {
 
     createUser(email,password)
     .then(result =>{
-      console.log(result.user)
+      console.log(result.user);
+      //add tost masseg start>     
+               Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Successfully YOU Register!",
+              showConfirmButton: false,
+              timer: 1500,
+              toast: true
+            });
+            //add tost masseg end> 
+         navigate('/signIn')  
     })
     .catch(error =>{
       console.log(error.message)

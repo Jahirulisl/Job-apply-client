@@ -22,6 +22,7 @@ const Nabebar = () => {
   const links = <>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to="/myapplications">MY Application</NavLink></li>
+    <li><NavLink to="/assignment">Assaginment Page</NavLink></li>
     <li><NavLink to="/">Home</NavLink></li>
     
   </>
