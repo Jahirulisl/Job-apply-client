@@ -11,6 +11,7 @@ import JobApply from "../pagyes/JobApply/JobApply";
 import MyApplications from "../pagyes/MyApplications/MyApplications";
 import Assignment from "../pagyes/Assignment/Assignment";
 import MyPostedJobs from "../pagyes/MyPostedJobs/MyPostedJobs";
+import VewApplications from "../pagyes/VewApplications/VewApplications";
 
 
 //create router from router tutrial start>
@@ -50,6 +51,13 @@ const router = createBrowserRouter([
         element:<ParivateRoute>
           <MyPostedJobs></MyPostedJobs>
         </ParivateRoute>
+      },
+      {
+        path:"vewapplications/:job_id",
+        element: <ParivateRoute>
+          <VewApplications></VewApplications>
+        </ParivateRoute>,
+        loader:({params})=> fetch(`http://localhost:5000/job-applications/jobs/${params.job_id}`)
       },
       
       {

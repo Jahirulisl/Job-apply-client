@@ -15,7 +15,7 @@ const MyApplications = () => {
 
   return (
     <div>
-      <h1>this is my application:{jobs.length}</h1>
+      <h2>my application:{jobs.length}</h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -29,7 +29,7 @@ const MyApplications = () => {
               <th>Name</th>
               <th>Job</th>
               <th>Favorite Color</th>
-              <th></th>
+              
             </tr>
           </thead>
           <tbody>

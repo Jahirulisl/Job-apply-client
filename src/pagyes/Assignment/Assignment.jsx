@@ -149,14 +149,14 @@ const Assignment = () => {
         {/* Hr name start */}
         <div className='form-control'>
           <label className="label"> Hr Name</label>
-          <input type="text" name='hrname' className="input input-bordered w-full" placeholder="Hr Name " required />
+          <input type="text" name='hr_name' className="input input-bordered w-full" placeholder="Hr Name " required />
         </div>
         {/* Hr name end */}
 
         {/* Hr Email start */}
         <div className='form-control'>
           <label className="label"> Hr Email</label>
-          <input type="email" defaultValue={user.email} name=' hremail' className="input input-bordered w-full" placeholder=" Hr Email " required />
+          <input type="email" defaultValue={user.email} name='hr_email' className="input input-bordered w-full" placeholder=" Hr Email " required />
         </div>
         {/* Hr Email start */}
 
