@@ -25,7 +25,7 @@ useEffect(()=>{
         <th></th>
         <th>Job Title</th>
         <th>Deadline</th>
-        <th>Vew Application</th>
+        <th>Vew Applications</th>
       </tr>
     </thead>
     <tbody>
