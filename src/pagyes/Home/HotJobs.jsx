@@ -6,7 +6,7 @@ const HotJobs = () => {
   const [jobs, setJobs] = useState([]);
     //out site thaka data lod ti useeffict>
   useEffect(()=>{
-   fetch('http://localhost:5000/jobs')
+   fetch('https://job-applly-server.vercel.app/jobs')
    .then(res =>res.json())
    .then(data =>{
      setJobs(data);

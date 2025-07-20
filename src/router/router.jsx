@@ -12,6 +12,7 @@ import MyApplications from "../pagyes/MyApplications/MyApplications";
 import Assignment from "../pagyes/Assignment/Assignment";
 import MyPostedJobs from "../pagyes/MyPostedJobs/MyPostedJobs";
 import VewApplications from "../pagyes/VewApplications/VewApplications";
+import AllJob from "../pagyes/AllJobs/AllJob";
 
 
 //create router from router tutrial start>
@@ -26,9 +27,13 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
+        path: "alljobs",
+        element: <AllJob></AllJob>,
+      },
+      {
         path: "/jobs/:id",
         element: <ParivateRoute><JobDetails></JobDetails></ParivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5000/jobs/${params.id}`)
+        loader: ({ params }) => fetch(`https://job-applly-server.vercel.app/jobs/${params.id}`)
       },
       {
         path: "/jobapply/:id",
@@ -57,7 +62,7 @@ const router = createBrowserRouter([
         element: <ParivateRoute>
           <VewApplications></VewApplications>
         </ParivateRoute>,
-        loader:({params})=> fetch(`http://localhost:5000/job-applications/jobs/${params.job_id}`)
+        loader:({params})=> fetch(`https://job-applly-server.vercel.app/job-applications/jobs/${params.job_id}`)
       },
       
       {

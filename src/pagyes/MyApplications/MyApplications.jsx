@@ -7,7 +7,7 @@ const MyApplications = () => {
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:5000/job-application?email=${user.email}`)
+    fetch(`https://job-applly-server.vercel.app/job-application?email=${user.email}`)
       .then(res => res.json())
       .then(data => setJobs(data))
       .catch(err => console.error("Fetch error:", err));

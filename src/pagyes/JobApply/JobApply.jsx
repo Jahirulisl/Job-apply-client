@@ -27,7 +27,7 @@ import Swal from 'sweetalert2';
       github,
       resume
     };
-    fetch('http://localhost:5000/job-applications', {
+    fetch('https://job-applly-server.vercel.app/job-applications', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

@@ -17,7 +17,7 @@ const Assignment = () => {
     }
     console.log(newJob);
 
-    fetch('http://localhost:5000/jobs',{
+    fetch('https://job-applly-server.vercel.app/jobs',{
       method:"POST",
       headers: {
         'content-type':'application/json'
@@ -46,7 +46,7 @@ const Assignment = () => {
         {/* jobTitle Start */}
         <div className='form-control'>
           <label className="label">job Title </label>
-          <input type="text" name='title' className="input input-bordered w-full" placeholder="jobTitle " required />
+          <input type="text" name='title' className="input input-bordered w-full" placeholder="Job Title " required />
         </div>
         {/* jobTitle end */}
 
@@ -156,7 +156,7 @@ const Assignment = () => {
         {/* Hr Email start */}
         <div className='form-control'>
           <label className="label"> Hr Email</label>
-          <input type="email" defaultValue={user.email} name='hr_email' className="input input-bordered w-full" placeholder=" Hr Email " required />
+          <input readOnly type="email" defaultValue={user.email} name='hr_email' className="input input-bordered w-full" placeholder=" Hr Email " required />
         </div>
         {/* Hr Email start */}
 

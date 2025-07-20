@@ -7,7 +7,7 @@ const MyPostedJobs = () => {
 const [jobs,setJobs] =useState([]);
 const {user} = useAuth();//j login kora
 useEffect(()=>{
-  fetch(`http://localhost:5000/jobs?email=${user.email}`)
+  fetch(`https://job-applly-server.vercel.app/jobs?email=${user.email}`)
   .then(res =>res.json())
   .then(data=>{
     setJobs(data)

@@ -9,7 +9,7 @@ const VewApplications = () => {
     const data ={
       status:e.target.value
     }
-    fetch(`http://localhost:5000/job-applications/${id}`,{
+    fetch(`https://job-applly-server.vercel.app/job-applications/${id}`,{
       method:'PATCH',
       headers:{
         'content-type':'application/json'
@@ -24,7 +24,7 @@ const VewApplications = () => {
                 Swal.fire({
                   position: "top-end",
                   icon: "success",
-                  title: "Your Application has been saved",
+                  title:"Your Application has been Updated",
                   showConfirmButton: false,
                   timer: 1500
                 });    
